@@ -1,0 +1,23 @@
+<h1>Available Courses</h1><div>
+  <h3>Course Statistics</h3>
+  <p>Courses Available: {{ courseCount }}</p>
+</div>
+
+<div *ngFor="let course of courses">
+
+  <app-course-card
+      *ngIf="course.available"
+      [title]="course.title"
+      [instructor]="course.instructor"
+      [duration]="course.duration"
+      (enroll)="onEnroll($event)">
+  </app-course-card>
+
+  <p>
+    Course Fee:
+    <strong>{{ course.fee | currency:'INR' }}</strong>
+  </p>
+
+  <hr>
+
+</div>
